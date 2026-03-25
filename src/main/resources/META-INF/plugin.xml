@@ -24,10 +24,6 @@
         <xdebugger.attachDebuggerProvider implementation="debugattach.MayaAttachDebuggerProvider"/>
     </extensions>
 
-    <extensions defaultExtensionNs="Pythonid">
-        <pythonFlavorProvider implementation="flavors.MayaFlavorProvider" order="first"/>
-    </extensions>
-
     <actions>
 
         <action id="actions.SendBufferAction"

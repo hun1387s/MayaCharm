@@ -4,8 +4,6 @@ import MayaBundle as Loc
 import settings.ApplicationSettings
 import utils.Delegate
 import utils.Event
-import flavors.MayaSdkFlavor as MyMayaSdkFlavor
-
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.projectRoots.impl.SdkConfigurationUtil
 import com.intellij.openapi.ui.Messages
@@ -43,7 +41,7 @@ class SdkTablePanel(private val project: Project) :
     override fun addItem(): ApplicationSettings.SdkInfo? {
         val existingSdks = PythonSdkUtil.getAllLocalCPythons().filter {
             !data.map { sdkInfo -> sdkInfo.mayaPyPath }.contains(it.homePath) && it.getOrCreateAdditionalData().run {
-                flavor == MayaSdkFlavor.INSTANCE || flavor == MyMayaSdkFlavor.INSTANCE
+                flavor is MayaSdkFlavor
             }
         }
 
